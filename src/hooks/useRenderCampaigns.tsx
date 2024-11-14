@@ -41,7 +41,7 @@ export function useRenderCampaigns() {
     // render recommendation component into placements:
     const recommendations = data.campaigns?.recommendations ?? {}
     for (const key in recommendations) {
-      const recommendation = recommendations[key] as Recommendation
+      const recommendation = { ...recommendations[key] as Recommendation, placementId: key }
       const placementSelector = "#" + key
       const placementElement = document.querySelector(placementSelector)
 
